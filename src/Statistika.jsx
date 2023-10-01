@@ -27,6 +27,7 @@ function Statistika({
   const handleUkloniClick = () => {
     obrisiUnos(index);
   };
+
   const handleEditClick = () => {
     setIsEditing(true);
   };
@@ -93,6 +94,15 @@ function Statistika({
                 <div>
                   <hr />
                   <h5>Uredi unos</h5>
+                  <div className="mb-3">
+                    <label className="form-label">Ime Programa:</label>
+                    <input
+                      type="text"
+                      value={editedImePrograma}
+                      onChange={(e) => setEditedImePrograma(e.target.value)}
+                      className="form-control"
+                    />
+                  </div>
                   <div className="mb-3">
                     <label className="form-label">Norma:</label>
                     <input
