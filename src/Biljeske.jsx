@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import anime from "animejs/lib/anime.es.js"; // Import Anime.js
 
 function Biljeske() {
   // Initialize notes with an empty array by default
   const [notes, setNotes] = useState([]);
   const [newNote, setNewNote] = useState("");
   const [editingIndex, setEditingIndex] = useState(null);
+
+  const containerRef = useRef(null); // Create a ref for the container element
 
   useEffect(() => {
     // Load notes from localStorage when the component mounts
@@ -18,6 +21,17 @@ function Biljeske() {
 
     console.log("Saved Notes from localStorage:", validatedNotes);
     setNotes(validatedNotes);
+
+    // Animation configuration
+    const animationConfig = {
+      targets: containerRef.current,
+      opacity: [0, 1], // From 0 to 1 opacity
+      duration: 1000, // Animation duration in milliseconds
+      easing: "easeInOutQuad", // Easing function
+    };
+
+    // Trigger the animation when the component mounts
+    anime(animationConfig);
   }, []); // Empty dependency array means this effect runs only once when the component mounts
 
   useEffect(() => {
@@ -56,7 +70,7 @@ function Biljeske() {
   };
 
   return (
-    <div className="container mt-4">
+    <div className="container mt-4" ref={containerRef}>
       <div className="row">
         <div className="col-md-10 mx-auto">
           <div className="card mb-2">
