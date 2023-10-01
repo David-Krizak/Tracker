@@ -5,6 +5,7 @@ import UnosPodataka from "./UnosPodataka";
 import Statistika from "./Statistika";
 import PrintTable from "./PrintTable";
 import Vrijeme from "./Vrijeme";
+import Biljeske from "./Biljeske";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
@@ -98,11 +99,11 @@ function App(props) {
             ) : (
               <div className="text-center mb-3" ref={ispisiButtonRef}>
                 <button disabled className="btn btn-secondary">
-                  Ispisi
+                  Ispiši tablicu
                 </button>
               </div>
             )}
-            <Vrijeme />
+            <Biljeske />
           </div>
         </div>
       </div>
